@@ -230,8 +230,8 @@ Transform:
   m_GameObject: {fileID: 231022718}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8, y: 0.06, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -8.28, y: -0.08, z: 0}
+  m_LocalScale: {x: 0.4401, y: 0.72, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -295,9 +295,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Velocity: 0
-  MinSpeed: 0
-  MaxSpeed: 0
+  MaxSpeedL: 0
+  MaxSpeedR: 0
   Speed: 0
+  JumpPower: 0
+  CanJump: 0
   RB: {fileID: 0}
   Collider: {fileID: 0}
 --- !u!1 &519420028
@@ -534,7 +536,7 @@ GameObject:
   - component: {fileID: 781386489}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
