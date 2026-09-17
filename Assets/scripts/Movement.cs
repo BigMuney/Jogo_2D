@@ -5,9 +5,11 @@ using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
 {
     public float Velocity, MaxSpeedL, MaxSpeedR, TimeCounter, CayoteTime;
-    public int JumpPower;
+    public int JumpPower, Speed;
     public bool CanJump = false;
+    bool OnWall = false;
     bool ClockStart = false;
+    bool FacingRight = true;
     public Rigidbody2D RB;
     public BoxCollider2D Collider;
     void Start()
@@ -16,13 +18,13 @@ public class Movement : MonoBehaviour
         Collider = GetComponent<BoxCollider2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+
         if (Input.GetAxis("Horizontal") != 0)
             {
             float movedirection = Input.GetAxis("Horizontal");
-            RB.linearVelocityX = movedirection * 5f;
+            RB.linearVelocityX = movedirection * Speed;
 
         }
         if (Input.GetKeyDown("space") == true && CanJump == true)
@@ -34,7 +36,7 @@ public class Movement : MonoBehaviour
             else
             {
                 RB.linearVelocityY = JumpPower;
-                CanJump = true;
+                CanJump = false;
             }
         }
         if (ClockStart)
@@ -49,12 +51,16 @@ public class Movement : MonoBehaviour
         }
 
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Ground"))
         {
             CanJump = true;
             Debug.Log("touchfloor");
+        }
+        if (collision.collider.CompareTag("Wall"))
+        {
+            OnWall = true;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
