@@ -1,11 +1,13 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
-    public float Velocity, MaxSpeedL, MaxSpeedR, Speed;
+    public float Velocity, MaxSpeedL, MaxSpeedR, TimeCounter, CayoteTime;
     public int JumpPower;
     public bool CanJump = false;
+    bool ClockStart = false;
     public Rigidbody2D RB;
     public BoxCollider2D Collider;
     void Start()
@@ -17,23 +19,47 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Speed = RB.linearVelocityX;
-        if (Input.GetKeyDown("space") == true && CanJump == true )
-        {
-            RB.linearVelocityY = JumpPower;
-            CanJump = false;
+        if (Input.GetAxis("Horizontal") != 0)
+            {
+            float movedirection = Input.GetAxis("Horizontal");
+            RB.linearVelocityX = movedirection * 5f;
+
         }
-        if (Input.GetAxis("Horizontal") != 0 && RB.linearVelocityX <= MaxSpeedR && RB.linearVelocityX >= MaxSpeedL)
+        if (Input.GetKeyDown("space") == true && CanJump == true)
         {
-            float HorizontalMove = Input.GetAxis("Horizontal");
-            RB.linearVelocityX = (HorizontalMove * Velocity);
+            if (RB.linearVelocityY > JumpPower)
+            {
+                RB.linearVelocityY = RB.linearVelocityY + (JumpPower / 2f);
+            }
+            else
+            {
+                RB.linearVelocityY = JumpPower;
+                CanJump = true;
+            }
         }
+        if (ClockStart)
+        {
+            TimeCounter = TimeCounter + Time.deltaTime;
+            if(TimeCounter > CayoteTime)
+            {
+                CanJump = false;
+                ClockStart = false;
+                TimeCounter = 0f;
+            }
+        }
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Ground") == true)
+        if (collision.collider.CompareTag("Ground"))
         {
             CanJump = true;
+            Debug.Log("touchfloor");
         }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        ClockStart = true;
+        Debug.Log("clockstart");
     }
 }
