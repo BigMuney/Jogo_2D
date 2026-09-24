@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public float speed = 5f;
@@ -26,6 +26,10 @@ public class Player : MonoBehaviour
         if (collision.collider.CompareTag("Ground"))
         {
             isGrounded = true;
+        }
+        if (collision.collider.CompareTag("hazard"))
+        {
+            SceneManager.LoadScene(0);
         }
     }
     private void OnCollisionExit2D(Collision2D collision)

@@ -2,11 +2,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-
+using UnityEngine.SceneManagement;
 public class Movement : MonoBehaviour
 {
     public float Velocity, MaxSpeedL, MaxSpeedR, TimeCounter, CayoteTime, MinSpeed;
-    public int JumpPower, Speed;
+    public int JumpPower, Speed, jumpcount;
     public bool CanJump = false;
     bool OnWall = false;
     bool ClockStart = false;
@@ -14,8 +14,11 @@ public class Movement : MonoBehaviour
     int Direction = 1;
     public Rigidbody2D RB;
     public BoxCollider2D Collider;
+    [SerializeField] private Crystals crystals;
+
     void Start()
     {
+        crystals = GetComponent<Crystals>();
         RB = GetComponent<Rigidbody2D>();
         Collider = GetComponent<BoxCollider2D>();
     }
@@ -32,25 +35,26 @@ public class Movement : MonoBehaviour
             Direction = (FacingRight == true) ? 1 : -1;
 
         }
-        if (Input.GetKeyDown("space") == true && CanJump == true)
+        if (Input.GetKeyDown("space") == true && CanJump == true & jumpcount >=1)
         {
             if (OnWall)
             {
                 RB.linearVelocityY = JumpPower;
                 RB.linearVelocityX = (JumpPower/2) * -Direction;
-
-
+                
             }
             else
             {
                 if (RB.linearVelocityY > JumpPower)
                 {
                     RB.linearVelocityY = RB.linearVelocityY + (JumpPower / 2f);
+                    jumpcount =-1;
                 }
                 else
                 {
                     RB.linearVelocityY = JumpPower;
-                    CanJump = false;
+                    jumpcount =-1 ;
+
                 }
             }
         }
@@ -59,19 +63,26 @@ public class Movement : MonoBehaviour
             TimeCounter += Time.deltaTime;
             if(TimeCounter > CayoteTime)
             {
-                CanJump = false;
+                jumpcount = jumpcount - 1;
                 ClockStart = false;
                 TimeCounter = 0f;
             }
         }
 
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("hazard"))
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Ground"))
         {
             CanJump = true;
-            Debug.Log("touchfloor");
+            jumpcount = crystals.extrajump + 1;
         }
         if (collision.collider.CompareTag("Wall"))
         {
