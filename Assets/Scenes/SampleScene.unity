@@ -433,9 +433,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418facd28b8e6b14cb1be9e325ec7e69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: 0000000000000000
+  inventory: 000000000000000000000000
   currentinv: 0
   extrajump: 0
+  movement: {fileID: 231022723}
 --- !u!4 &307401226 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3934799088542262930, guid: ad772797e4cba6b429b19d4ec79c7e24, type: 3}
@@ -1330,7 +1331,7 @@ Transform:
   m_GameObject: {fileID: 845257231}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.34, y: -1.47, z: 0}
+  m_LocalPosition: {x: -10.37, y: -1.45, z: 0}
   m_LocalScale: {x: 0.3395, y: 1.1278, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1425,8 +1426,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Offset: {x: -0.03, y: -0.019082708}
+  m_Radius: 0.38073346
 --- !u!4 &1088000216 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3934799088542262930, guid: ad772797e4cba6b429b19d4ec79c7e24, type: 3}
