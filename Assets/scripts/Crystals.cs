@@ -25,6 +25,10 @@ public class Crystals : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.X))
             {
+                if( movement.RB.linearVelocityY < 0)
+                {
+                    movement.RB.linearVelocityY = 0;
+                }
                 movement.RB.linearVelocityY = movement.RB.linearVelocityY + movement.JumpPower * 1.5f;
                 inventory[currentinv] = 0;
             }
@@ -33,7 +37,7 @@ public class Crystals : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.X))
             {
-                movement.RB.linearVelocityY = 0;
+                movement.RB.linearVelocityY = 2f;
                 movement.RB.linearVelocityX = movement.RB.linearVelocityX + movement.JumpPower * movement.Direction ;
                 inventory[currentinv] = 0;
             }

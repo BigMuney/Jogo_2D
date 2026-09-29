@@ -5,7 +5,9 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 public class Movement : MonoBehaviour
 {
-    public float Acceleration, TimeCounter, MinSpeed;
+    public int targetFPS = 60; // Set your desired FPS
+
+    public float Acceleration, TimeCounter;
     public int JumpPower, Speed, jumpcount, MaxSpeed, CayoteTime, gravity, traction;
     public bool CanJump = false;
     public bool jumped = false;
@@ -19,6 +21,7 @@ public class Movement : MonoBehaviour
 
     void Start()
     {
+        Application.targetFrameRate = targetFPS;
         crystals = GetComponent<Crystals>();
         RB = GetComponent<Rigidbody2D>();
         Collider = GetComponent<BoxCollider2D>();
@@ -86,12 +89,12 @@ public class Movement : MonoBehaviour
             {
                 if (RB.linearVelocityX < MaxSpeed * Direction)
                 {
-                    RB.linearVelocityX = MinSpeed + Speed * Direction;
+                    RB.linearVelocityX = RB.linearVelocityX + Speed * Direction;
                     Debug.Log("Velocidade direita"+ RB.linearVelocityX);
                 }
                 else
                 {
-                    RB.linearVelocityX = RB.linearVelocityX * 1.1f;
+                    RB.linearVelocityX = RB.linearVelocityX * 0.999f;
                     Debug.Log("Velocidade direita acima"+ RB.linearVelocityX);
 
                 }
@@ -100,19 +103,19 @@ public class Movement : MonoBehaviour
             {
                 if (RB.linearVelocityX > MaxSpeed * Direction)
                 {
-                    RB.linearVelocityX = (MinSpeed * Direction) + (Speed * Direction);
+                    RB.linearVelocityX = RB.linearVelocityX + Speed * Direction;
                     Debug.Log("Velocidade esquerda"+ RB.linearVelocityX);
 
                 }
                 else
                 {
-                    RB.linearVelocityX = RB.linearVelocityX * 0.95f;
+                    RB.linearVelocityX = RB.linearVelocityX * 0.999f;
                     Debug.Log("Velocidade esquerda acima"+ RB.linearVelocityX);
 
                 }
             }
         }
-        if (Input.GetKeyDown("space") == true && CanJump == true & jumpcount >= 1)
+        if (Input.GetKeyDown(KeyCode.Z) == true && CanJump == true & jumpcount >= 1)
 
         {
 
