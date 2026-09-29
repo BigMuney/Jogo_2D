@@ -29,7 +29,7 @@ public class Crystals : MonoBehaviour
                 {
                     movement.RB.linearVelocityY = 0;
                 }
-                movement.RB.linearVelocityY = movement.RB.linearVelocityY + movement.JumpPower * 1.25f;
+                movement.RB.linearVelocityY = movement.RB.linearVelocityY + movement.JumpPower * 1.25f; // the multiplier is an arbitrary number, 
                 inventory[currentinv] = 0;
             }
         }
