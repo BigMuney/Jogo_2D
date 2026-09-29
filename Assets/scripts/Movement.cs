@@ -90,12 +90,10 @@ public class Movement : MonoBehaviour
                 if (RB.linearVelocityX < MaxSpeed * Direction)
                 {
                     RB.linearVelocityX = RB.linearVelocityX + Speed * Direction;
-                    Debug.Log("Velocidade direita"+ RB.linearVelocityX);
                 }
                 else
                 {
                     RB.linearVelocityX = RB.linearVelocityX * 0.999f;
-                    Debug.Log("Velocidade direita acima"+ RB.linearVelocityX);
 
                 }
             }
@@ -104,13 +102,11 @@ public class Movement : MonoBehaviour
                 if (RB.linearVelocityX > MaxSpeed * Direction)
                 {
                     RB.linearVelocityX = RB.linearVelocityX + Speed * Direction;
-                    Debug.Log("Velocidade esquerda"+ RB.linearVelocityX);
 
                 }
                 else
                 {
                     RB.linearVelocityX = RB.linearVelocityX * 0.999f;
-                    Debug.Log("Velocidade esquerda acima"+ RB.linearVelocityX);
 
                 }
             }
