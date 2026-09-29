@@ -12,12 +12,8 @@ public class Crystals : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C)) // this code is responsible for looping through the inventory
         {
-            if (inventory[currentinv] == 1)
-            {
-                movement.jumpcount -= 1;
-            }
             currentinv++;
             if (currentinv >= inventory.Length )
             {
@@ -25,16 +21,14 @@ public class Crystals : MonoBehaviour
             }
             Debug.Log(inventory.Length);
         }
-        if (inventory[currentinv] == 1)
+        if (inventory[currentinv] == 1) // this code is responsible for the wing crystal
         {
-            extrajump = 1;
-            if ( movement.jumpcount == 0)
+            if (Input.GetKeyDown(KeyCode.X))
             {
+                movement.RB.linearVelocityY = movement.RB.linearVelocityY + movement.JumpPower * 1.5f;
                 inventory[currentinv] = 0;
             }
-            } else {
-                extrajump = 0;
-            }       
+        }    
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -42,14 +36,14 @@ public class Crystals : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("wings"))
+        if (inventory[currentinv] == 0) // checks if current inv is empty
         {
-            Debug.Log("touchedwings");
-            if (inventory[currentinv] == 0)
+            //the scripts under this are simply to apply said crystal to the current inv
+            if (collision.CompareTag("wings")) 
             {
+            Debug.Log("touchedwings");
                 inventory[currentinv] = 1;
-                movement.jumpcount += 1;
             }
-        }
+        } 
     }
 }

@@ -26,7 +26,7 @@ public class Movement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         jumped = false;
-        if (collision.collider.CompareTag("hazard"))
+        if (collision.collider.CompareTag("hazard")) // code responsible for reseting the scene on death
         {
             SceneManager.LoadScene(0);
         }
@@ -67,14 +67,14 @@ public class Movement : MonoBehaviour
         {
             float movedirection = Input.GetAxis("Horizontal");
 
-            RB.linearVelocityX = (MinSpeed * movedirection) + movedirection * Speed * (Time.deltaTime * 10);
+            RB.linearVelocityX = (MinSpeed * movedirection) + movedirection * Speed;
             FacingRight = (movedirection > 0) ? true : false;
             Direction = (FacingRight == true) ? 1 : -1;
 
         }
         if (Input.GetKeyDown("space") == true && CanJump == true & jumpcount >= 1)
         {
-            if (OnWall)
+            if (OnWall) // this script makes it so that if you're in contacts with a wall and jump you'll go the oposite way
             {
                 RB.linearVelocityY = JumpPower;
                 RB.linearVelocityX = (JumpPower / 2) * -Direction;
@@ -85,7 +85,7 @@ public class Movement : MonoBehaviour
             {
                 if (RB.linearVelocityY > JumpPower)
                 {
-                    RB.linearVelocityY = RB.linearVelocityY + (JumpPower / 2f);
+                    RB.linearVelocityY = RB.linearVelocityY + (JumpPower / 2f); // if the velocity is higher than the power of the jump than add extra velocity
                     jumpcount -= 1;
                     jumped = true;
                 }
@@ -97,14 +97,14 @@ public class Movement : MonoBehaviour
                 }
             }
         }
-        if (ClockStart)
+        if (ClockStart) // this script is the one that runs cayote time
         {
             if (jumped == true)
             {
                 ClockStart = false;
                 TimeCounter = 0;
             }
-            TimeCounter += Time.deltaTime;
+            TimeCounter += 0.05f; // every frame adds 0.05 to the timer, meaning it takes 4 frames to run out
             if (TimeCounter > CayoteTime)
             {
                 jumpcount = jumpcount - 1;
