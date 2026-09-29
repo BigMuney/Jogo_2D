@@ -19,7 +19,7 @@ public class Crystals : MonoBehaviour
             {
                 currentinv = 0;
             }
-            Debug.Log(inventory.Length);
+            Debug.Log(inventory[currentinv]);
         }
         if (inventory[currentinv] == 1) // this code is responsible for the wing crystal
         {
@@ -35,6 +35,7 @@ public class Crystals : MonoBehaviour
             {
                 movement.RB.linearVelocityY = 0;
                 movement.RB.linearVelocityX = movement.RB.linearVelocityX + movement.JumpPower * movement.Direction ;
+                inventory[currentinv] = 0;
             }
         }
     }
