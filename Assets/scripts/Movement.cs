@@ -8,11 +8,11 @@ public class Movement : MonoBehaviour
     public float Velocity, MaxSpeedL, MaxSpeedR, TimeCounter, CayoteTime, MinSpeed;
     public int JumpPower, Speed, jumpcount;
     public bool CanJump = false;
-    bool jumped = false;
-    bool OnWall = false;
-    bool ClockStart = false;
-    bool FacingRight = true;
-    int Direction = 1;
+    public bool jumped = false;
+    public bool OnWall = false;
+    public bool ClockStart = false;
+    public bool FacingRight = true;
+    public int Direction = 1;
     public Rigidbody2D RB;
     public BoxCollider2D Collider;
     [SerializeField] private Crystals crystals;
@@ -44,7 +44,7 @@ public class Movement : MonoBehaviour
             CanJump = true;
             if (jumped == false) 
             {
-                jumpcount = crystals.extrajump + 1; 
+                jumpcount = 1; 
             }
         }
     }
