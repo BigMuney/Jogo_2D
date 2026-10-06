@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
         }
         if (collision.collider.CompareTag("hazard"))
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
     private void OnCollisionExit2D(Collision2D collision)

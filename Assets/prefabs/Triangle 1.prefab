@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2234408779342001117}
   - component: {fileID: 3489423216081664264}
   - component: {fileID: 8013986683048566541}
+  - component: {fileID: 4603173397174753611}
   m_Layer: 0
   m_Name: Triangle 1
   m_TagString: dash
@@ -138,3 +139,19 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 0
+--- !u!114 &4603173397174753611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3421357189801921997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 418facd28b8e6b14cb1be9e325ec7e69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: 000000000000000000000000
+  currentinv: 0
+  extrajump: 0
+  movement: {fileID: 0}

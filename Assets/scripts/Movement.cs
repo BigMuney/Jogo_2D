@@ -15,6 +15,9 @@ public class Movement : MonoBehaviour
     public bool ClockStart = false;
     public bool FacingRight = true;
     public int Direction = 1;
+    public bool onsurface;
+    public string space, left, right, jump, use, change;
+
     public Rigidbody2D RB;
     public BoxCollider2D Collider;
     [SerializeField] private Crystals crystals;
@@ -31,15 +34,17 @@ public class Movement : MonoBehaviour
         jumped = false;
         if (collision.collider.CompareTag("hazard")) // code responsible for reseting the scene on death
 
+
         {
             SceneManager.LoadScene(0);
         }
 
     }
     private void OnCollisionStay2D(Collision2D collision)
-    { 
+    {
+        onsurface = true;
         if (collision.collider.CompareTag("Wall"))
-
+            
         {
             OnWall = true;
             CanJump = true; 
@@ -60,7 +65,7 @@ public class Movement : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-
+        onsurface = false;
         if (collision.collider.CompareTag("Ground"))
 
         {
@@ -109,9 +114,12 @@ public class Movement : MonoBehaviour
                 }
             }
         }
-        else
+        else 
         {
-            RB.linearVelocity = new Vector2(RB.linearVelocity.x/1.2f, RB.linearVelocity.y); //simulates
+            if (onsurface == true)
+            {
+                RB.linearVelocity = new Vector2(RB.linearVelocity.x/1.2f, RB.linearVelocity.y); //simulates friction
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Z) == true && CanJump == true & jumpcount >= 1)
