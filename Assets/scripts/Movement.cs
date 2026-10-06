@@ -37,8 +37,7 @@ public class Movement : MonoBehaviour
 
     }
     private void OnCollisionStay2D(Collision2D collision)
-    {
-        
+    { 
         if (collision.collider.CompareTag("Wall"))
 
         {
@@ -79,7 +78,6 @@ public class Movement : MonoBehaviour
     void Update()
     {
         if (Input.GetAxis("Horizontal") != 0)
-
         {  
         float movedirection = Input.GetAxis("Horizontal");
         FacingRight = (movedirection > 0) ? true : false;
@@ -111,6 +109,11 @@ public class Movement : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            RB.linearVelocity = new Vector2(RB.linearVelocity.x/1.2f, RB.linearVelocity.y); //simulates
+        }
+
         if (Input.GetKeyDown(KeyCode.Z) == true && CanJump == true & jumpcount >= 1)
 
         {
@@ -144,6 +147,7 @@ public class Movement : MonoBehaviour
 
             }
         }
+
         if (ClockStart) // this script is the one that runs cayote time
 
         {
