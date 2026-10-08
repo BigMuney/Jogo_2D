@@ -9,16 +9,20 @@ public class Textdisplay : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.collider.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             text.SetActive(true);
         }
     }
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.collider.CompareTag("Player"))
-        { text.SetActive(false); }
+        if (collision.gameObject.CompareTag("Player"))
+        { 
+            text.SetActive(false); 
+        
+        }
     }
+     
 }
