@@ -57,7 +57,7 @@ public class Crystals : MonoBehaviour
         {
             crystal = "nothing";
         }
-        Debug.Log(crystal);
+        Debug.Log(currentinv + " " + crystal);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

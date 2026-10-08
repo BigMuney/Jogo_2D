@@ -34,7 +34,6 @@ public class Movement : MonoBehaviour
         jumped = false;
         if (collision.collider.CompareTag("hazard")) // code responsible for reseting the scene on death
 
-
         {
             SceneManager.LoadScene(0);
         }
