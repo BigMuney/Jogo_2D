@@ -9,3 +9,4 @@ hoje foi feito o repositorio, o projeto na unity e a junção enter o github des
 17/09 - hoje trabalhamos no movimento basico do jogador, enquanto isso eu fiz varias mudanças para o movimento verdadeiro que vai ser aplicado, ainda precisa de muita mudança pra ficar perfeito mas nada muito dificil
 22/09 - hoje trabalhamos no movimento para o jogador, mesmo eu tendo feito um movimento mais personalizado para o meu jogo, ainda estou copiando o código ensinado na escola
 24/09 - hoje arrumei o meu script de movimento e tambem trabalhei no script de crystais, o que ainda precisa de ser optimizado
+15/10 - hoje aprendemos sobre interface e comessamos a trabalhar no menu do jogo
