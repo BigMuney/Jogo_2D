@@ -59,10 +59,6 @@ public class Crystals : MonoBehaviour
         }
         Debug.Log(currentinv + " " + crystal);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (inventory[currentinv] == 0) // checks if current inv is empty
