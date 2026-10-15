@@ -5,6 +5,7 @@ public class Crystals : MonoBehaviour
     public int[] inventory = new int[3];
     public int currentinv;
     public int extrajump;
+    public string crystal;
     [SerializeField] private Movement movement;
     void Start()
     {
@@ -19,29 +20,44 @@ public class Crystals : MonoBehaviour
             {
                 currentinv = 0;
             }
-            Debug.Log(inventory[currentinv]);
+          
         }
+       
         if (inventory[currentinv] == 1) // this code is responsible for the wing crystal
         {
+            crystal = "wings";
+            Debug.Log(currentinv);
+            Debug.Log("asa");
             if (Input.GetKeyDown(KeyCode.X))
             {
-                movement.RB.linearVelocityY = movement.RB.linearVelocityY + movement.JumpPower * 1.5f;
+                if( movement.RB.linearVelocityY < 0)
+                {
+                    movement.RB.linearVelocityY = 0;
+                }
+                movement.RB.linearVelocityY = movement.RB.linearVelocityY + movement.JumpPower * 1.25f; // the multiplier is an arbitrary number, 
                 inventory[currentinv] = 0;
             }
         }
-        if (inventory[currentinv] == 2)
+        else if (inventory[currentinv] == 2) // this code is responsible for the dash crystal
         {
+            Debug.Log(currentinv);
+            Debug.Log("dash");
+            crystal = "dash";
             if (Input.GetKeyDown(KeyCode.X))
             {
-                movement.RB.linearVelocityY = 0;
-                movement.RB.linearVelocityX = movement.RB.linearVelocityX + movement.JumpPower * movement.Direction ;
+                if (movement.onsurface == false)
+                {
+                    movement.RB.linearVelocityY = 2f;
+                }
+                movement.RB.linearVelocityX = movement.RB.linearVelocityX + (movement.JumpPower / 1.5f) * movement.Direction;
                 inventory[currentinv] = 0;
             }
         }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
+        else if (inventory[currentinv] == 0)
+        {
+            crystal = "nothing";
+        }
+        Debug.Log(currentinv + " " + crystal);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

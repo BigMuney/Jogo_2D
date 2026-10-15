@@ -10,6 +10,7 @@ TagManager:
   - hazard
   - wings
   - dash
+  - sign
   layers:
   - Default
   - TransparentFX

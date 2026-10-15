@@ -5,7 +5,9 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 public class Movement : MonoBehaviour
 {
-    public float Acceleration, TimeCounter, MinSpeed;
+    public int targetFPS = 60; // Set your desired FPS
+
+    public float Acceleration, TimeCounter;
     public int JumpPower, Speed, jumpcount, MaxSpeed, CayoteTime, gravity, traction;
     public bool CanJump = false;
     public bool jumped = false;
@@ -13,12 +15,16 @@ public class Movement : MonoBehaviour
     public bool ClockStart = false;
     public bool FacingRight = true;
     public int Direction = 1;
+    public bool onsurface;
+    public string space, left, right, jump, use, change;
+
     public Rigidbody2D RB;
     public BoxCollider2D Collider;
     [SerializeField] private Crystals crystals;
 
     void Start()
     {
+        Application.targetFrameRate = targetFPS;
         crystals = GetComponent<Crystals>();
         RB = GetComponent<Rigidbody2D>();
         Collider = GetComponent<BoxCollider2D>();
@@ -35,9 +41,9 @@ public class Movement : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        
+        onsurface = true;
         if (collision.collider.CompareTag("Wall"))
-
+            
         {
             OnWall = true;
             CanJump = true; 
@@ -58,7 +64,7 @@ public class Movement : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-
+        onsurface = false;
         if (collision.collider.CompareTag("Ground"))
 
         {
@@ -76,7 +82,6 @@ public class Movement : MonoBehaviour
     void Update()
     {
         if (Input.GetAxis("Horizontal") != 0)
-
         {  
         float movedirection = Input.GetAxis("Horizontal");
         FacingRight = (movedirection > 0) ? true : false;
@@ -86,13 +91,11 @@ public class Movement : MonoBehaviour
             {
                 if (RB.linearVelocityX < MaxSpeed * Direction)
                 {
-                    RB.linearVelocityX = MinSpeed + Speed * Direction;
-                    Debug.Log("Velocidade direita"+ RB.linearVelocityX);
+                    RB.linearVelocityX = RB.linearVelocityX + Speed * Direction;
                 }
                 else
                 {
-                    RB.linearVelocityX = RB.linearVelocityX * 1.1f;
-                    Debug.Log("Velocidade direita acima"+ RB.linearVelocityX);
+                    RB.linearVelocityX = RB.linearVelocityX * 0.999f;
 
                 }
             }
@@ -100,19 +103,25 @@ public class Movement : MonoBehaviour
             {
                 if (RB.linearVelocityX > MaxSpeed * Direction)
                 {
-                    RB.linearVelocityX = (MinSpeed * Direction) + (Speed * Direction);
-                    Debug.Log("Velocidade esquerda"+ RB.linearVelocityX);
+                    RB.linearVelocityX = RB.linearVelocityX + Speed * Direction;
 
                 }
                 else
                 {
-                    RB.linearVelocityX = RB.linearVelocityX * 0.95f;
-                    Debug.Log("Velocidade esquerda acima"+ RB.linearVelocityX);
+                    RB.linearVelocityX = RB.linearVelocityX * 0.999f;
 
                 }
             }
         }
-        if (Input.GetKeyDown("space") == true && CanJump == true & jumpcount >= 1)
+        else 
+        {
+            if (onsurface == true)
+            {
+                RB.linearVelocity = new Vector2(RB.linearVelocity.x/1.2f, RB.linearVelocity.y); //simulates friction
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z) == true && CanJump == true & jumpcount >= 1)
 
         {
 
@@ -145,6 +154,7 @@ public class Movement : MonoBehaviour
 
             }
         }
+
         if (ClockStart) // this script is the one that runs cayote time
 
         {
