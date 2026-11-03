@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 5288193119264711294}
   - component: {fileID: 3811296580756257413}
   - component: {fileID: 6912659537194715496}
-  - component: {fileID: 4139276016850025495}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -182,10 +181,10 @@ MonoBehaviour:
   targetFPS: 60
   Acceleration: 0
   TimeCounter: 0
-  JumpPower: 6
+  JumpPower: 5
   Speed: 1
   jumpcount: 0
-  MaxSpeed: 4
+  MaxSpeed: 2
   CayoteTime: 0
   gravity: 0
   traction: 0
@@ -195,6 +194,13 @@ MonoBehaviour:
   ClockStart: 0
   FacingRight: 1
   Direction: 1
+  onsurface: 0
+  space: 
+  left: 
+  right: 
+  jump: 
+  use: 
+  change: 
   RB: {fileID: 0}
   Collider: {fileID: 0}
   crystals: {fileID: 6912659537194715496}
@@ -227,21 +233,8 @@ MonoBehaviour:
   inventory: 000000000000000000000000
   currentinv: 0
   extrajump: 0
+  crystal: 
   movement: {fileID: 5288193119264711294}
---- !u!114 &4139276016850025495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5826250180247922560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1548eedd2547fbb4f99a340e8b4c9c84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camera: {fileID: 0}
-  playertransform: {fileID: 0}
 --- !u!1 &8130795580360558605
 GameObject:
   m_ObjectHideFlags: 0

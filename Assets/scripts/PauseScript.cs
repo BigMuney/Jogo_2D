@@ -1,14 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class MenuFunctions : MonoBehaviour
+public class PauseScript : MonoBehaviour
 {
-    public GameObject canvas;
-    public int LV;
+    public GameObject PauseMenu;
     public bool Paused = false;
     Scene scene;
     void Start()
     {
-        canvas.SetActive(false);
+        PauseMenu.SetActive(false);
         scene = SceneManager.GetActiveScene();
     }
     private void Update()
@@ -16,13 +15,13 @@ public class MenuFunctions : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P) && Paused == false)
         {
             Time.timeScale = 0f;
-            canvas.SetActive(true);
+            PauseMenu.SetActive(true);
             Paused = true;
         }
         else if (Input.GetKeyDown(KeyCode.P) && Paused == true)
         { 
             Time.timeScale = 1f;
-            canvas.SetActive(false);   
+            PauseMenu.SetActive(false);   
             Paused = false ;
         }
     }
@@ -35,6 +34,11 @@ public class MenuFunctions : MonoBehaviour
     public void NextLevel()
     {
         SceneManager.LoadScene(scene.buildIndex + 1);
+        Time.timeScale = 1f;
+    }
+    public void PrevLevel()
+    {
+        SceneManager.LoadScene(scene.buildIndex - 1);
         Time.timeScale = 1f;
     }
 }
