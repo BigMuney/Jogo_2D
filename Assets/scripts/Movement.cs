@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class Movement : MonoBehaviour
 {
     public int targetFPS = 60; // Set your desired FPS
-
     public float Acceleration, TimeCounter;
     public int JumpPower, Speed, jumpcount, MaxSpeed, CayoteTime, gravity, traction;
     public bool CanJump = false;
@@ -17,13 +16,14 @@ public class Movement : MonoBehaviour
     public int Direction = 1;
     public bool onsurface;
     public string space, left, right, jump, use, change;
-
+    Scene scene;
     public Rigidbody2D RB;
     public BoxCollider2D Collider;
     [SerializeField] private Crystals crystals;
 
     void Start()
     {
+        scene = SceneManager.GetActiveScene();
         Application.targetFrameRate = targetFPS;
         crystals = GetComponent<Crystals>();
         RB = GetComponent<Rigidbody2D>();
@@ -35,7 +35,7 @@ public class Movement : MonoBehaviour
         if (collision.collider.CompareTag("hazard")) // code responsible for reseting the scene on death
 
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(scene.buildIndex);
         }
 
     }

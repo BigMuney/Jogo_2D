@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6912659537194715496}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -182,7 +182,7 @@ MonoBehaviour:
   Acceleration: 0
   TimeCounter: 0
   JumpPower: 5
-  Speed: 1
+  Speed: 2
   jumpcount: 0
   MaxSpeed: 2
   CayoteTime: 0
@@ -201,8 +201,8 @@ MonoBehaviour:
   jump: 
   use: 
   change: 
-  RB: {fileID: 0}
-  Collider: {fileID: 0}
+  RB: {fileID: 4902603284098381674}
+  Collider: {fileID: 5145729822994929701}
   crystals: {fileID: 6912659537194715496}
 --- !u!114 &3811296580756257413
 MonoBehaviour:
