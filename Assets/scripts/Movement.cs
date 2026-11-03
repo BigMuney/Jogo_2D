@@ -81,7 +81,7 @@ public class Movement : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetAxis("Horizontal") != 0)
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
         {  
         float movedirection = Input.GetAxis("Horizontal");
         FacingRight = (movedirection > 0) ? true : false;
@@ -115,7 +115,7 @@ public class Movement : MonoBehaviour
         }
         else 
         {
-                RB.linearVelocity = new Vector2(RB.linearVelocity.x/1.7f, RB.linearVelocity.y); //simulates friction
+                RB.linearVelocity = new Vector2(RB.linearVelocity.x/1.3f, RB.linearVelocity.y); //simulates friction
         }
 
         if (Input.GetKeyDown(KeyCode.Z) == true && CanJump == true & jumpcount >= 1)
