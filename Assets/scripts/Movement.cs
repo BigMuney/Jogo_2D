@@ -115,10 +115,7 @@ public class Movement : MonoBehaviour
         }
         else 
         {
-            if (onsurface == true)
-            {
-                RB.linearVelocity = new Vector2(RB.linearVelocity.x/1.2f, RB.linearVelocity.y); //simulates friction
-            }
+                RB.linearVelocity = new Vector2(RB.linearVelocity.x/1.7f, RB.linearVelocity.y); //simulates friction
         }
 
         if (Input.GetKeyDown(KeyCode.Z) == true && CanJump == true & jumpcount >= 1)
