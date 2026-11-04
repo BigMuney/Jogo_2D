@@ -181,13 +181,12 @@ MonoBehaviour:
   targetFPS: 60
   Acceleration: 0
   TimeCounter: 0
+  Speedloss: 1.3
   JumpPower: 5
   Speed: 2
   jumpcount: 0
   MaxSpeed: 2
-  CayoteTime: 0
-  gravity: 0
-  traction: 0
+  CayoteTime: 5
   CanJump: 1
   jumped: 0
   OnWall: 0
@@ -195,12 +194,6 @@ MonoBehaviour:
   FacingRight: 1
   Direction: 1
   onsurface: 0
-  space: 
-  left: 
-  right: 
-  jump: 
-  use: 
-  change: 
   RB: {fileID: 4902603284098381674}
   Collider: {fileID: 5145729822994929701}
   crystals: {fileID: 6912659537194715496}

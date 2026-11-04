@@ -26,19 +26,14 @@ public class PauseScript : MonoBehaviour
         }
     }
     public void RestartScene()
-    {
-        SceneManager.LoadScene(scene.buildIndex);
+    {   
         Time.timeScale = 1f;
+        SceneManager.LoadScene(scene.buildIndex);
     }
 
     public void NextLevel()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(scene.buildIndex + 1);
-        Time.timeScale = 1f;
-    }
-    public void PrevLevel()
-    {
-        SceneManager.LoadScene(scene.buildIndex - 1);
-        Time.timeScale = 1f;
     }
 }

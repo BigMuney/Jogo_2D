@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class Movement : MonoBehaviour
 {
     public int targetFPS = 60; // Set your desired FPS
-    public float Acceleration, TimeCounter;
-    public int JumpPower, Speed, jumpcount, MaxSpeed, CayoteTime, gravity, traction;
+    public float Acceleration, TimeCounter, Speedloss;
+    public int JumpPower, Speed, jumpcount, MaxSpeed, CayoteTime;
     public bool CanJump = false;
     public bool jumped = false;
     public bool OnWall = false;
@@ -15,7 +15,6 @@ public class Movement : MonoBehaviour
     public bool FacingRight = true;
     public int Direction = 1;
     public bool onsurface;
-    public string space, left, right, jump, use, change;
     Scene scene;
     public Rigidbody2D RB;
     public BoxCollider2D Collider;
@@ -115,7 +114,7 @@ public class Movement : MonoBehaviour
         }
         else 
         {
-                RB.linearVelocity = new Vector2(RB.linearVelocity.x/1.3f, RB.linearVelocity.y); //simulates friction
+                RB.linearVelocity = new Vector2(RB.linearVelocity.x/Speedloss, RB.linearVelocity.y); //simulates friction
         }
 
         if (Input.GetKeyDown(KeyCode.Z) == true && CanJump == true & jumpcount >= 1)
