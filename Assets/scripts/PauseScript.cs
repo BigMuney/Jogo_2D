@@ -33,7 +33,13 @@ public class PauseScript : MonoBehaviour
 
     public void NextLevel()
     {
+
         Time.timeScale = 1f;
         SceneManager.LoadScene(scene.buildIndex + 1);
+    }
+    public void PrevLevel()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(scene.buildIndex - 1);
     }
 }
