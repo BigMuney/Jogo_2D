@@ -7,7 +7,6 @@ public class HUD : MonoBehaviour
     public int inv;
     public string Name;
     public Image image;
-    public int currenttarget;
     void Start()
     {
         Name = "nothing";
@@ -17,19 +16,17 @@ public class HUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currenttarget = (inv - crystals.currentinv <0) ? 3-inv : inv-crystals.currentinv;
-        if (currenttarget == 0)
+        if(crystals.inventory[inv] == 0)
         {
             image.color = Color.white;
         }
-        if (currenttarget == 1)
+        if (crystals.inventory[inv] == 1)
         {
             image.color = Color.blue;
         }
-        if (currenttarget == 2)
+        if (crystals.inventory[inv] == 2)
         {
             image.color = Color.yellow;
         }
-        Debug.Log(currenttarget);
     }
 }
