@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 public class Movement : MonoBehaviour
 {
     public int targetFPS = 60; // Set your desired FPS
-
-    public float Acceleration, TimeCounter;
-    public int JumpPower, Speed, jumpcount, MaxSpeed, CayoteTime, gravity, traction;
+    public float Acceleration, TimeCounter, Speedloss;
+    public int JumpPower, Speed, jumpcount, MaxSpeed, CayoteTime;
     public bool CanJump = false;
     public bool jumped = false;
     public bool OnWall = false;
@@ -16,14 +15,14 @@ public class Movement : MonoBehaviour
     public bool FacingRight = true;
     public int Direction = 1;
     public bool onsurface;
-    public string space, left, right, jump, use, change;
-
+    Scene scene;
     public Rigidbody2D RB;
     public BoxCollider2D Collider;
     [SerializeField] private Crystals crystals;
 
     void Start()
     {
+        scene = SceneManager.GetActiveScene();
         Application.targetFrameRate = targetFPS;
         crystals = GetComponent<Crystals>();
         RB = GetComponent<Rigidbody2D>();
@@ -35,7 +34,7 @@ public class Movement : MonoBehaviour
         if (collision.collider.CompareTag("hazard")) // code responsible for reseting the scene on death
 
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(scene.buildIndex);
         }
 
     }
@@ -81,7 +80,7 @@ public class Movement : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetAxis("Horizontal") != 0)
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
         {  
         float movedirection = Input.GetAxis("Horizontal");
         FacingRight = (movedirection > 0) ? true : false;
@@ -115,10 +114,7 @@ public class Movement : MonoBehaviour
         }
         else 
         {
-            if (onsurface == true)
-            {
-                RB.linearVelocity = new Vector2(RB.linearVelocity.x/1.2f, RB.linearVelocity.y); //simulates friction
-            }
+                RB.linearVelocity = new Vector2(RB.linearVelocity.x/Speedloss, RB.linearVelocity.y); //simulates friction
         }
 
         if (Input.GetKeyDown(KeyCode.Z) == true && CanJump == true & jumpcount >= 1)
