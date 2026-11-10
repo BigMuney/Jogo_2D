@@ -3,6 +3,7 @@ using UnityEngine;
 public class Textdisplay : MonoBehaviour
 {
     public GameObject text;
+    private bool Yams = true;
     void Start()
     {
         text.SetActive(false);

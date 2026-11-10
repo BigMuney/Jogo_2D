@@ -5,11 +5,13 @@ public class Crystals : MonoBehaviour
     public int[] inventory = new int[3];
     public int currentinv;
     public int extrajump;
+    public SpriteRenderer sprite;
     public string crystal;
     [SerializeField] private Movement movement;
     void Start()
     {
         currentinv = 0;
+        sprite = GetComponent<SpriteRenderer>();
     }
     void Update()
     {
@@ -26,8 +28,7 @@ public class Crystals : MonoBehaviour
         if (inventory[currentinv] == 1) // this code is responsible for the wing crystal
         {
             crystal = "wings";
-            Debug.Log(currentinv);
-            Debug.Log("asa");
+            sprite.color = Color.darkBlue;
             if (Input.GetKeyDown(KeyCode.X))
             {
                 if( movement.RB.linearVelocityY < 0)
@@ -41,8 +42,7 @@ public class Crystals : MonoBehaviour
         else if (inventory[currentinv] == 2) // this code is responsible for the dash crystal
         {
             Debug.Log(currentinv);
-            Debug.Log("dash");
-            crystal = "dash";
+            sprite.color = Color.yellow;
             if (Input.GetKeyDown(KeyCode.X))
             {
                 if (movement.onsurface == false)
@@ -55,6 +55,7 @@ public class Crystals : MonoBehaviour
         }
         else if (inventory[currentinv] == 0)
         {
+            sprite.color = Color.lightBlue;
             crystal = "nothing";
         }
         Debug.Log(currentinv + " " + crystal);
