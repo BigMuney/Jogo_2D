@@ -185,8 +185,8 @@ MonoBehaviour:
   JumpPower: 5
   Speed: 2
   jumpcount: 0
-  MaxSpeed: 2
-  CayoteTime: 5
+  MaxSpeed: 4
+  CayoteTime: 10
   CanJump: 1
   jumped: 0
   OnWall: 0
@@ -226,6 +226,7 @@ MonoBehaviour:
   inventory: 000000000000000000000000
   currentinv: 0
   extrajump: 0
+  sprite: {fileID: 0}
   crystal: 
   movement: {fileID: 5288193119264711294}
 --- !u!1 &8130795580360558605

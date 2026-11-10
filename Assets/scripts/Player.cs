@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
@@ -7,7 +8,7 @@ public class Player : MonoBehaviour
     Rigidbody2D rb;
     bool isGrounded = false;
     Scene scene;
-
+    public MenuScene menu;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -32,7 +33,7 @@ public class Player : MonoBehaviour
         }
         if (collision.collider.CompareTag("hazard"))
         {
-            SceneManager.LoadScene(scene.buildIndex);
+            menu.ShowGameOver();
         }
     }
     private void OnCollisionExit2D(Collision2D collision)

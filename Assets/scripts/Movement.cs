@@ -80,7 +80,7 @@ public class Movement : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)) //script handles left and right movement
         {  
         float movedirection = Input.GetAxis("Horizontal");
         FacingRight = (movedirection > 0) ? true : false;
@@ -90,7 +90,11 @@ public class Movement : MonoBehaviour
             {
                 if (RB.linearVelocityX < MaxSpeed * Direction)
                 {
-                    RB.linearVelocityX = RB.linearVelocityX + Speed * Direction;
+                    RB.linearVelocityX = RB.linearVelocityX + Speed * Direction; // this handles the acceleration to the right
+                    if (RB.linearVelocityX > MaxSpeed * Direction)  // this conditional limits the speed to the max
+                    { 
+                        RB.linearVelocityX = MaxSpeed * Direction;
+                    }
                 }
                 else
                 {
@@ -102,8 +106,11 @@ public class Movement : MonoBehaviour
             {
                 if (RB.linearVelocityX > MaxSpeed * Direction)
                 {
-                    RB.linearVelocityX = RB.linearVelocityX + Speed * Direction;
-
+                    RB.linearVelocityX = RB.linearVelocityX + Speed * Direction; //acceleration to the left
+                    if (RB.linearVelocityX < MaxSpeed * Direction)
+                    {
+                        RB.linearVelocityX = MaxSpeed * Direction; //limits speed to the max
+                    }
                 }
                 else
                 {
