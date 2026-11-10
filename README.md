@@ -14,3 +14,5 @@ hoje foi feito o repositorio, o projeto na unity e a junção enter o github des
 24/09 - hoje arrumei o meu script de movimento e tambem trabalhei no script de crystais, o que ainda precisa de ser optimizado
 
 15/10 - hoje aprendemos sobre interface e comessamos a trabalhar no menu do jogo
+
+10/11 - hoje aprendemos como faser um menu de game over e pause, mesmo que eu ja tinha feito um menu antes, eu ainda aprendi como faser funsoes
