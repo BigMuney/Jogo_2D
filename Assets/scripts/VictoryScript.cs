@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class VictoryScript : MonoBehaviour
 {
+    public bool Throphy;
+    public GameObject ThrophyScreen;
     public GameObject VictoryScreen;
     public bool Victory = false;
     Scene scene;
@@ -10,13 +12,23 @@ public class VictoryScript : MonoBehaviour
     {
         VictoryScreen.SetActive(false);
         scene = SceneManager.GetActiveScene();
+        ThrophyScreen.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Time.timeScale = 0f;
-        VictoryScreen.SetActive(true);
-        Victory = true;
+        if (Throphy)
+        {
+            ThrophyScreen.SetActive(true);
+            Victory = true;
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 0f;
+            VictoryScreen.SetActive(true);
+            Victory = true;
+        }
 
     }
     public void RestartScene()
@@ -32,5 +44,8 @@ public class VictoryScript : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(scene.buildIndex + 1);
     }
-
+    public void ToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

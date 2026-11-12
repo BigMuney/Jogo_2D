@@ -50,9 +50,13 @@ public class MenuScene : MonoBehaviour
         PanelGameOver.SetActive(true);
         Time.timeScale = 0f;
     }
-    public void Reset()
+    public void Resetlevel()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void ToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
