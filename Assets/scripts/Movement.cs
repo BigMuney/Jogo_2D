@@ -35,7 +35,12 @@ public class Movement : MonoBehaviour
         if (collision.collider.CompareTag("hazard")) // code responsible for reseting the scene on death
 
         {
+<<<<<<< Updated upstream
             SceneManager.LoadScene(0);
+=======
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(scene.buildIndex);
+>>>>>>> Stashed changes
         }
 
     }

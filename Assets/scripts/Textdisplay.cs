@@ -14,14 +14,16 @@ public class Textdisplay : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             text.SetActive(true);
+            Time.timeScale = 0.5f;
+            Yams = false;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         { 
-            text.SetActive(false); 
-        
+            text.SetActive(false);
+            Time.timeScale = 1f;
         }
     }
      

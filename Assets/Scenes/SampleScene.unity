@@ -474,6 +474,7 @@ Transform:
   - {fileID: 2015946987}
   - {fileID: 501356560}
   - {fileID: 1811268019}
+  - {fileID: 371538684}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &199892278
@@ -2002,7 +2003,6 @@ Transform:
   - {fileID: 1571540703}
   - {fileID: 1815924599}
   - {fileID: 1712380046}
-  - {fileID: 371538684}
   - {fileID: 420586036}
   - {fileID: 2077113603}
   - {fileID: 885475559}
@@ -2373,13 +2373,94 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3386131719307889335, guid: 0a65b97a3bcc8ee40b9a10bbb9c2f018, type: 3}
   m_PrefabInstance: {fileID: 1310416314}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream:Assets/Scenes/SampleScene.unity
+=======
+--- !u!1 &2020537208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2020537209}
+  - component: {fileID: 2020537211}
+  - component: {fileID: 2020537210}
+  m_Layer: 5
+  m_Name: PanelPause
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &2020537209
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020537208}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1147013207}
+  - {fileID: 200841883}
+  - {fileID: 326356838}
+  m_Father: {fileID: 141547622}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2020537210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020537208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2020537211
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020537208}
+  m_CullTransparentMesh: 1
+>>>>>>> Stashed changes:Assets/Scenes/FirstLevel.unity
 --- !u!1001 &2048392535
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1535740475}
+    m_TransformParent: {fileID: 140199040}
     m_Modifications:
     - target: {fileID: 3386131719307889335, guid: 0a65b97a3bcc8ee40b9a10bbb9c2f018, type: 3}
       propertyPath: m_LocalScale.x
@@ -2391,11 +2472,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3386131719307889335, guid: 0a65b97a3bcc8ee40b9a10bbb9c2f018, type: 3}
       propertyPath: m_LocalPosition.x
+<<<<<<< Updated upstream:Assets/Scenes/SampleScene.unity
       value: 2.45953
       objectReference: {fileID: 0}
     - target: {fileID: 3386131719307889335, guid: 0a65b97a3bcc8ee40b9a10bbb9c2f018, type: 3}
       propertyPath: m_LocalPosition.y
       value: 5.27741
+=======
+      value: 5.38299
+      objectReference: {fileID: 0}
+    - target: {fileID: 3386131719307889335, guid: 0a65b97a3bcc8ee40b9a10bbb9c2f018, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.89012
+>>>>>>> Stashed changes:Assets/Scenes/FirstLevel.unity
       objectReference: {fileID: 0}
     - target: {fileID: 3386131719307889335, guid: 0a65b97a3bcc8ee40b9a10bbb9c2f018, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2567,7 +2656,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4882472957266763419, guid: f4ffc07879e1b304a8a994bebad86797, type: 3}
       propertyPath: m_LocalPosition.x
+<<<<<<< Updated upstream:Assets/Scenes/SampleScene.unity
       value: -7.4
+=======
+      value: -4.16
+>>>>>>> Stashed changes:Assets/Scenes/FirstLevel.unity
       objectReference: {fileID: 0}
     - target: {fileID: 4882472957266763419, guid: f4ffc07879e1b304a8a994bebad86797, type: 3}
       propertyPath: m_LocalPosition.y
