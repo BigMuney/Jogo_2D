@@ -1085,6 +1085,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PausedMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 1311309700718272534, guid: d0b903f9033bcda4ebf0451bdaae262a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1664065957669373320, guid: d0b903f9033bcda4ebf0451bdaae262a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: RestartScene

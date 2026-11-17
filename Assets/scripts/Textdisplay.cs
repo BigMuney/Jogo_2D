@@ -15,6 +15,7 @@ public class Textdisplay : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             text.SetActive(true);
+            Yams = false;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

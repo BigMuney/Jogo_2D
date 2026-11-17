@@ -4,7 +4,8 @@ public class MenuManager : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("FirstLevel");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(1);
     }
     public void CloseGame()
     {

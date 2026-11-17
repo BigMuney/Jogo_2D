@@ -41,7 +41,6 @@ public class Crystals : MonoBehaviour
         }
         else if (inventory[currentinv] == 2) // this code is responsible for the dash crystal
         {
-            Debug.Log(currentinv);
             sprite.color = Color.yellow;
             if (Input.GetKeyDown(KeyCode.X))
             {
@@ -58,7 +57,6 @@ public class Crystals : MonoBehaviour
             sprite.color = Color.lightBlue;
             crystal = "nothing";
         }
-        Debug.Log(currentinv + " " + crystal);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

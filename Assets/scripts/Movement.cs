@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Movement : MonoBehaviour
 {
     public int targetFPS = 60; // Set your desired FPS
-    public float Acceleration, TimeCounter, Speedloss;
+    public float TimeCounter, Speedloss;
     public int JumpPower, Speed, jumpcount, MaxSpeed, CayoteTime;
     public bool CanJump = false;
     public bool jumped = false;
@@ -34,6 +34,7 @@ public class Movement : MonoBehaviour
         if (collision.collider.CompareTag("hazard")) // code responsible for reseting the scene on death
 
         {
+            Time.timeScale = 1f; // this line in specific is to prevent the game from freezing because of the school player script, delete this for optimization once school stuff is done, or not idk maybe it helps the game not bug 
             SceneManager.LoadScene(scene.buildIndex);
         }
 

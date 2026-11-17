@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 314359448849464310}
   - component: {fileID: 1188957549986874822}
-  - component: {fileID: 4710971015343571708}
+  - component: {fileID: 2832489668222663430}
+  - component: {fileID: 4387269521639221281}
   m_Layer: 0
   m_Name: wings
   m_TagString: wings
@@ -88,8 +89,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &4710971015343571708
-CircleCollider2D:
+--- !u!61 &2832489668222663430
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -122,5 +123,30 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.03, y: -0.019082708}
-  m_Radius: 0.38073346
+  m_Offset: {x: -0.0048570633, y: -0.0029247701}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.2040398, y: 1.0409472}
+  m_EdgeRadius: 0
+--- !u!114 &4387269521639221281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8603839556849706655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7dd130dc45eef54e9372d586e27b856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counter: 0
+  SR: {fileID: 0}
+  Collider: {fileID: 0}
