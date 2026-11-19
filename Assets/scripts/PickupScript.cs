@@ -15,30 +15,28 @@ public class PickupScript : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player")) // this detects if the crystal is touching the player
         {
-            Debug.Log("should be turned off");
-            Collider.enabled = false;
-            SR.enabled = false;
-            timer = true; 
+            Collider.enabled = false; // turns off the colider so the player cannot interact with it
+            SR.enabled = false; // turns off the sprite renderer so the player cannot see it
+            timer = true; // starts the timer
             counter = 0;
         }
     }
     private void Update()
     {
         if (timer)
-        {
-           
-            if (counter <=120)
+        {   
+            if (counter <=120) // 2 second timer to respawn the crystal
             {
                 counter++;
             }
             else
             {
-                gameObject.SetActive(true);
                 SR.enabled=true;
                 Collider.enabled=true;
                 timer = false;
+                //sets renderer colider to true allowing the player to interact with it again, and stops the timer
             }
         }
     }

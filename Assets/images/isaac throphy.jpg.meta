@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      isaac throphy_0: -732149201997518049
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
